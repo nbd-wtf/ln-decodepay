@@ -20,15 +20,25 @@ func DecodepayWithCurrency(currency, bolt11 string) (Bolt11, error) {
 		return Bolt11{}, err
 	}
 
+	var msat uint64
+	if inv.MilliSat != nil {
+		msat = uint64(*inv.MilliSat)
+	}
+
+	var desc string
+	if inv.Description != nil {
+		desc = *inv.Description
+	}
+
 	return Bolt11{
-		MSatoshi:           uint64(*inv.MilliSat),
+		MSatoshi:           msat,
 		PaymentHash:        hex.EncodeToString(inv.PaymentHash[:]),
-		Description:        *inv.Description,
+		Description:        desc,
 		Payee:              hex.EncodeToString(inv.Destination.SerializeCompressed()),
 		CreatedAt:          uint64(inv.Timestamp.Unix()),
 		Expiry:             uint64(inv.Expiry() / time.Second),
 		MinFinalCLTVExpiry: inv.MinFinalCLTVExpiry(),
-		Currency:           DefaultCurrency,
+		Currency:           currency,
 	}, nil
 }
 
