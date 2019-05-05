@@ -38,7 +38,7 @@ func DecodepayWithCurrency(currency, bolt11 string) (Bolt11, error) {
 		CreatedAt:          uint64(inv.Timestamp.Unix()),
 		Expiry:             uint64(inv.Expiry() / time.Second),
 		MinFinalCLTVExpiry: inv.MinFinalCLTVExpiry(),
-		Currency:           DefaultCurrency,
+		Currency:           currency,
 	}, nil
 }
 
