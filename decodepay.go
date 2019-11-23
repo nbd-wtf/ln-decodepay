@@ -10,17 +10,23 @@ import (
 	"github.com/lightningnetwork/lnd/zpay32"
 )
 
-func Decodepay(bolt11 string) (Bolt11, error) {
-	chain := chaincfg.MainNetParams
-	if strings.HasPrefix(bolt11, "lnbcrt") {
-		chain = chaincfg.RegressionNetParams
-	} else if strings.HasPrefix(bolt11, "lntb") {
-		chain = chaincfg.TestNet3Params
-	} else if strings.HasPrefix(bolt11, "lnsb") {
-		chain = chaincfg.SimNetParams
+func ChainFromCurrency(currency string) *chaincfg.Params {
+	if strings.HasPrefix(currency, "bcrt") {
+		return &chaincfg.RegressionNetParams
+	} else if strings.HasPrefix(currency, "tb") {
+		return &chaincfg.TestNet3Params
+	} else if strings.HasPrefix(currency, "sb") {
+		return &chaincfg.SimNetParams
+	} else {
+		return &chaincfg.MainNetParams
 	}
+}
 
-	return DecodepayWithChain(&chain, bolt11)
+func Decodepay(bolt11 string) (Bolt11, error) {
+	return DecodepayWithChain(
+		ChainFromCurrency(bolt11[2:]),
+		bolt11,
+	)
 }
 
 func DecodepayWithChain(chain *chaincfg.Params, bolt11 string) (Bolt11, error) {
