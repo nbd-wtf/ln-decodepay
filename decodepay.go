@@ -2,6 +2,7 @@ package decodepay
 
 import (
 	"encoding/hex"
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -23,6 +24,10 @@ func ChainFromCurrency(currency string) *chaincfg.Params {
 }
 
 func Decodepay(bolt11 string) (Bolt11, error) {
+	if len(bolt11) < 2 {
+		return Bolt11{}, errors.New("bolt11 too short")
+	}
+
 	return DecodepayWithChain(
 		ChainFromCurrency(bolt11[2:]),
 		bolt11,
