@@ -2,7 +2,7 @@ decodepay
 ---------
 
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/fiatjaf/ln-decodepay/blob/master/LICENSE)
-[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/fiatjaf/ln-decodepay/zpay32)
+[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/fiatjaf/ln-decodepay)
 
 Simple Lightning Network BOLT11 invoice decoder with outputs similar to [c-lightning](https://github.com/ElementsProject/lightning/blob/master/doc/lightning-decodepay.7.txt) using code from [lnd](https://github.com/lightningnetwork/lnd).
 
