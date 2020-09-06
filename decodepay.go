@@ -40,9 +40,9 @@ func DecodepayWithChain(chain *chaincfg.Params, bolt11 string) (Bolt11, error) {
 		return Bolt11{}, err
 	}
 
-	var msat uint64
+	var msat int64
 	if inv.MilliSat != nil {
-		msat = uint64(*inv.MilliSat)
+		msat = int64(*inv.MilliSat)
 	}
 
 	var desc string
@@ -83,9 +83,9 @@ func DecodepayWithChain(chain *chaincfg.Params, bolt11 string) (Bolt11, error) {
 		Description:        desc,
 		DescriptionHash:    deschash,
 		Payee:              hex.EncodeToString(inv.Destination.SerializeCompressed()),
-		CreatedAt:          uint64(inv.Timestamp.Unix()),
-		Expiry:             uint64(inv.Expiry() / time.Second),
-		MinFinalCLTVExpiry: inv.MinFinalCLTVExpiry(),
+		CreatedAt:          int(inv.Timestamp.Unix()),
+		Expiry:             int(inv.Expiry() / time.Second),
+		MinFinalCLTVExpiry: int(inv.MinFinalCLTVExpiry()),
 		Currency:           inv.Net.Bech32HRPSegwit,
 		Route:              routes,
 	}, nil
@@ -93,14 +93,14 @@ func DecodepayWithChain(chain *chaincfg.Params, bolt11 string) (Bolt11, error) {
 
 type Bolt11 struct {
 	Currency           string  `json:"currency"`
-	CreatedAt          uint64  `json:"created_at"`
-	Expiry             uint64  `json:"expiry"`
+	CreatedAt          int     `json:"created_at"`
+	Expiry             int     `json:"expiry"`
 	Payee              string  `json:"payee"`
-	MSatoshi           uint64  `json:"msatoshi"`
+	MSatoshi           int64   `json:"msatoshi"`
 	Description        string  `json:"description,omitempty"`
 	DescriptionHash    string  `json:"description_hash,omitempty"`
 	PaymentHash        string  `json:"payment_hash"`
-	MinFinalCLTVExpiry uint64  `json:"min_final_cltv_expiry"`
+	MinFinalCLTVExpiry int     `json:"min_final_cltv_expiry"`
 	Route              [][]Hop `json:"routes,omitempty"`
 }
 
