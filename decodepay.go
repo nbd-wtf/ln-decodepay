@@ -11,30 +11,17 @@ import (
 	"github.com/lightningnetwork/lnd/zpay32"
 )
 
-func ChainFromCurrency(currency string) *chaincfg.Params {
-	if strings.HasPrefix(currency, "bcrt") {
-		return &chaincfg.RegressionNetParams
-	} else if strings.HasPrefix(currency, "tb") {
-		return &chaincfg.TestNet3Params
-	} else if strings.HasPrefix(currency, "sb") {
-		return &chaincfg.SimNetParams
-	} else {
-		return &chaincfg.MainNetParams
-	}
-}
-
 func Decodepay(bolt11 string) (Bolt11, error) {
 	if len(bolt11) < 2 {
 		return Bolt11{}, errors.New("bolt11 too short")
 	}
 
-	return DecodepayWithChain(
-		ChainFromCurrency(bolt11[2:]),
-		bolt11,
-	)
-}
+	firstNumber := strings.IndexAny(bolt11, "1234567890")
+	chainPrefix := bolt11[2:firstNumber]
+	chain := &chaincfg.Params{
+		Bech32HRPSegwit: chainPrefix,
+	}
 
-func DecodepayWithChain(chain *chaincfg.Params, bolt11 string) (Bolt11, error) {
 	inv, err := zpay32.Decode(bolt11, chain)
 	if err != nil {
 		return Bolt11{}, err
