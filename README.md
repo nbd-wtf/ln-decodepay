@@ -1,8 +1,8 @@
 decodepay
 ---------
 
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/fiatjaf/ln-decodepay/blob/master/LICENSE)
-[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/fiatjaf/ln-decodepay)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/nbd-wtf/ln-decodepay/blob/master/LICENSE)
+[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/nbd-wtf/ln-decodepay)
 
 Simple Lightning Network BOLT11 invoice decoder with outputs similar to [c-lightning](https://github.com/ElementsProject/lightning/blob/master/doc/lightning-decodepay.7.txt) using code from [lnd](https://github.com/lightningnetwork/lnd).
 
@@ -11,7 +11,7 @@ This is necessary because c-lightning is a pain to deal with if you're using `de
 ### install
 
 ```
-go get -u github.com/fiatjaf/ln-decodepay
+go get -u github.com/nbd-wtf/ln-decodepay
 ```
 
 ### use
@@ -23,7 +23,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	decodepay "github.com/fiatjaf/ln-decodepay"
+	decodepay "github.com/nbd-wtf/ln-decodepay"
 )
 
 func main() {

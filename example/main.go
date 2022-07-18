@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	decodepay "github.com/fiatjaf/ln-decodepay"
+	decodepay "github.com/nbd-wtf/ln-decodepay"
 )
 
 func main() {

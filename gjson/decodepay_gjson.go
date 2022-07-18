@@ -3,7 +3,7 @@ package decodepay_gjson
 import (
 	"encoding/json"
 
-	"github.com/fiatjaf/ln-decodepay"
+	"github.com/nbd-wtf/ln-decodepay"
 	"github.com/tidwall/gjson"
 )
 
