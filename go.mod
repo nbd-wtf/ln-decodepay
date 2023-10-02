@@ -5,6 +5,7 @@ go 1.18
 require (
 	github.com/btcsuite/btcd v0.23.1
 	github.com/lightningnetwork/lnd v0.15.0-beta
+	github.com/test-go/testify v1.1.4
 	github.com/tidwall/gjson v1.6.1
 )
 
@@ -37,6 +38,7 @@ require (
 	github.com/lightningnetwork/lnd/tlv v1.0.3 // indirect
 	github.com/lightningnetwork/lnd/tor v1.0.1 // indirect
 	github.com/miekg/dns v1.1.43 // indirect
+	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/tidwall/match v1.0.1 // indirect
 	github.com/tidwall/pretty v1.0.2 // indirect
 	golang.org/x/crypto v0.0.0-20210921155107-089bfa567519 // indirect
