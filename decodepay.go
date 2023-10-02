@@ -17,6 +17,10 @@ func Decodepay(bolt11 string) (Bolt11, error) {
 	}
 
 	firstNumber := strings.IndexAny(bolt11, "1234567890")
+	if firstNumber < 2 {
+		return Bolt11{}, errors.New("invalid bolt11 invoice")
+	}
+
 	chainPrefix := bolt11[2:firstNumber]
 	chain := &chaincfg.Params{
 		Bech32HRPSegwit: chainPrefix,
