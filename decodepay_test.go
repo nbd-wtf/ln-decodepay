@@ -3,7 +3,7 @@ package decodepay
 import (
 	"testing"
 
-	"github.com/test-go/testify/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestDecodepay(t *testing.T) {

@@ -5,7 +5,7 @@ go 1.18
 require (
 	github.com/btcsuite/btcd v0.23.5-0.20230905170901-80f5a0ffdf36
 	github.com/lightningnetwork/lnd v0.17.0-beta
-	github.com/test-go/testify v1.1.4
+	github.com/stretchr/testify v1.8.4
 	github.com/tidwall/gjson v1.6.1
 )
 
@@ -48,4 +48,5 @@ require (
 	golang.org/x/sync v0.2.0 // indirect
 	golang.org/x/sys v0.8.0 // indirect
 	golang.org/x/term v0.8.0 // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
