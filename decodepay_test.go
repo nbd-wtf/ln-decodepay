@@ -28,10 +28,10 @@ func TestDecodepay(t *testing.T) {
 		assert.NoError(t, err)
 		assert.Equal(t, expected, actual)
 
-        bolt11 = strings.ToUpper(bolt11)
-        actual, err = Decodepay(bolt11)
-        assert.NoError(t, err)
-        assert.Equal(t, expected, actual)
+		bolt11 = strings.ToUpper(bolt11)
+        	actual, err = Decodepay(bolt11)
+        	assert.NoError(t, err)
+        	assert.Equal(t, expected, actual)
 
 	})
 
