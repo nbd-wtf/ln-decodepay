@@ -2,6 +2,7 @@ package decodepay
 
 import (
 	"testing"
+	"strings"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -26,6 +27,12 @@ func TestDecodepay(t *testing.T) {
 		actual, err := Decodepay(bolt11)
 		assert.NoError(t, err)
 		assert.Equal(t, expected, actual)
+
+        bolt11 = strings.ToUpper(bolt11)
+        actual, err = Decodepay(bolt11)
+        assert.NoError(t, err)
+        assert.Equal(t, expected, actual)
+
 	})
 
 	t.Run("Returns error for invalid bolt11 invoice", func(t *testing.T) {

@@ -21,6 +21,8 @@ func Decodepay(bolt11 string) (Bolt11, error) {
 		return Bolt11{}, errors.New("invalid bolt11 invoice")
 	}
 
+    bolt11 = strings.ToLower(bolt11)
+
 	chainPrefix := bolt11[2:firstNumber]
 	chain := &chaincfg.Params{
 		Bech32HRPSegwit: chainPrefix,
