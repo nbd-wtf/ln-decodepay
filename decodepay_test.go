@@ -49,6 +49,13 @@ func TestDecodepay(t *testing.T) {
 		assert.Equal(t, expected, actual)
 	})
 
+	t.Run("fails to decode mixed case invoice", func(t *testing.T) {
+		bolt11 := "LNBC15U1P3XNHL2PP5JPTSERFk3zk4qy42tlucycrfwxhydvlemu9pqr93tuzlv9cc7g3sdqsvfhKCAP3XYHX7UN8CQZPGXQZJCSP5F8C52Y2STC300GL6S4XSWTJPC37HRNNR3C9WVTGJFUVQMPM35EVQ9QYYSSQY4LGD8TJ637QCJP05RDPXXYKJENTHXFTEJ7A2ZZMWRMRL70FYJ9HVJ0REWHZJ7JFYUWKWCG9G2JPWTK3WKJTWNKDKS84HSNU8XPS5VSQ4GJ5HS"
+
+		_, err := Decodepay(bolt11)
+		assert.Error(t, err)
+	})
+
 	t.Run("Returns error for invalid bolt11 invoice", func(t *testing.T) {
 		bolt11 := "lnbc1234Invalid"
 
