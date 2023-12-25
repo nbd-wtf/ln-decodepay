@@ -21,14 +21,14 @@ func Decodepay(bolt11 string) (Bolt11, error) {
 		return Bolt11{}, errors.New("invalid bolt11 invoice")
 	}
 
-	chainPrefix := bolt11[2:firstNumber]
+	chainPrefix := strings.ToLower(bolt11[2:firstNumber])
 	chain := &chaincfg.Params{
 		Bech32HRPSegwit: chainPrefix,
 	}
 
 	inv, err := zpay32.Decode(bolt11, chain)
 	if err != nil {
-		return Bolt11{}, err
+		return Bolt11{}, fmt.Errorf("zpay32 decoding failed: %w", err)
 	}
 
 	var msat int64
