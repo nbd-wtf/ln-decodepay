@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	github.com/btcsuite/btcd v0.23.5-0.20230905170901-80f5a0ffdf36
-	github.com/lightningnetwork/lnd v0.17.0-beta
+	github.com/lightningnetwork/lnd v0.17.3-beta
 	github.com/stretchr/testify v1.8.4
 	github.com/tidwall/gjson v1.6.1
 )
@@ -16,7 +16,7 @@ require (
 	github.com/btcsuite/btcd/btcutil/psbt v1.1.8 // indirect
 	github.com/btcsuite/btcd/chaincfg/chainhash v1.0.2 // indirect
 	github.com/btcsuite/btclog v0.0.0-20170628155309-84c8d2346e9f // indirect
-	github.com/btcsuite/btcwallet v0.16.10-0.20230804184612-07be54bc22cf // indirect
+	github.com/btcsuite/btcwallet v0.16.10-0.20231129183218-5df09dd43358 // indirect
 	github.com/btcsuite/btcwallet/wallet/txauthor v1.3.2 // indirect
 	github.com/btcsuite/btcwallet/wallet/txrules v1.2.0 // indirect
 	github.com/btcsuite/btcwallet/wallet/txsizes v1.2.3 // indirect
@@ -45,7 +45,6 @@ require (
 	golang.org/x/crypto v0.7.0 // indirect
 	golang.org/x/exp v0.0.0-20230315142452-642cacee5cc0 // indirect
 	golang.org/x/net v0.10.0 // indirect
-	golang.org/x/sync v0.2.0 // indirect
 	golang.org/x/sys v0.8.0 // indirect
 	golang.org/x/term v0.8.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
