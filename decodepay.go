@@ -7,6 +7,7 @@ import (
 	"strings"
 	"time"
 
+	_ "github.com/btcsuite/btcd/btcec/v2"
 	"github.com/btcsuite/btcd/chaincfg"
 	"github.com/lightningnetwork/lnd/zpay32"
 )
